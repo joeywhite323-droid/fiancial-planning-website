@@ -204,8 +204,14 @@
 
       const resArea = document.getElementById('estateResultArea');
       resArea.classList.remove('hidden');
-      resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.remove('hidden');
-      document.getElementById('estateFullReport').classList.add('hidden');
+      
+      if (localStorage.getItem('fq_unlocked') === 'true') {
+        resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.add('hidden');
+        document.getElementById('estateFullReport').classList.remove('hidden');
+      } else {
+        resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.remove('hidden');
+        document.getElementById('estateFullReport').classList.add('hidden');
+      }
     }
 
     function promptEstateGate() {

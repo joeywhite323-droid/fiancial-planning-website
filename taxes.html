@@ -237,8 +237,14 @@
 
       const resArea = document.getElementById('taxResultArea');
       resArea.classList.remove('hidden');
-      resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.remove('hidden');
-      document.getElementById('taxFullReport').classList.add('hidden');
+      
+      if (localStorage.getItem('fq_unlocked') === 'true') {
+        resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.add('hidden');
+        document.getElementById('taxFullReport').classList.remove('hidden');
+      } else {
+        resArea.querySelector('.backdrop-blur-\\[3px\\]').classList.remove('hidden');
+        document.getElementById('taxFullReport').classList.add('hidden');
+      }
     }
 
     function promptTaxGate() {

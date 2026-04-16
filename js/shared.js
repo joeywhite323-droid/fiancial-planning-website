@@ -197,6 +197,7 @@ function handleLeadSubmit(e) {
   btn.disabled = true;
   
   setTimeout(() => {
+    localStorage.setItem('fq_unlocked', 'true');
     document.getElementById('leadForm').classList.add('hidden');
     document.getElementById('leadSuccess').classList.remove('hidden');
     btn.innerHTML = originalText;

@@ -206,8 +206,14 @@
 
       const resArea = document.getElementById('retResultArea');
       resArea.classList.remove('hidden');
-      resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.remove('hidden');
-      document.getElementById('retFullReport').classList.add('hidden');
+      
+      if (localStorage.getItem('fq_unlocked') === 'true') {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.add('hidden');
+        document.getElementById('retFullReport').classList.remove('hidden');
+      } else {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.remove('hidden');
+        document.getElementById('retFullReport').classList.add('hidden');
+      }
     }
 
     function promptRetirementGate() {

@@ -254,9 +254,13 @@
       const resArea = document.getElementById('nwResultArea');
       resArea.classList.remove('hidden');
       
-      // Ensure the "blur" is active on first calculation
-      resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.remove('hidden');
-      document.getElementById('nwFullReport').classList.add('hidden');
+      if (localStorage.getItem('fq_unlocked') === 'true') {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.add('hidden');
+        document.getElementById('nwFullReport').classList.remove('hidden');
+      } else {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.remove('hidden');
+        document.getElementById('nwFullReport').classList.add('hidden');
+      }
     }
 
     function promptNetWorthGate() {
