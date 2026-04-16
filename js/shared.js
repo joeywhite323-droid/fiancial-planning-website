@@ -16,7 +16,7 @@ function injectSharedComponents() {
           <!-- Navigation -->
           <nav class="hidden md:block">
             <ul class="flex space-x-8">
-              <li><a href="index.html" class="text-charcoal hover:text-teal font-medium transition-colors">Financial Planning</a></li>
+              <li><a href="financial.html" class="text-charcoal hover:text-teal font-medium transition-colors">Financial Planning</a></li>
               <li><a href="retirement.html" class="text-charcoal hover:text-teal font-medium transition-colors">Retirement Planning</a></li>
               <li><a href="taxes.html" class="text-charcoal hover:text-teal font-medium transition-colors">Tax Planning</a></li>
               <li><a href="estate.html" class="text-charcoal hover:text-teal font-medium transition-colors">Estate Planning</a></li>
