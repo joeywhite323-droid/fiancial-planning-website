@@ -14,13 +14,13 @@ function injectSharedComponents() {
           </div>
           
           <!-- Navigation -->
-          <nav class="hidden md:block">
-            <ul class="flex space-x-8">
-              <li><a href="financial.html" class="text-charcoal hover:text-teal font-medium transition-colors">Financial Planning</a></li>
-              <li><a href="investments.html" class="text-charcoal hover:text-teal font-medium transition-colors">Investment Planning</a></li>
-              <li><a href="retirement.html" class="text-charcoal hover:text-teal font-medium transition-colors">Retirement Planning</a></li>
-              <li><a href="taxes.html" class="text-charcoal hover:text-teal font-medium transition-colors">Tax Planning</a></li>
-              <li><a href="estate.html" class="text-charcoal hover:text-teal font-medium transition-colors">Estate Planning</a></li>
+          <nav class="hidden lg:block mx-4">
+            <ul class="flex space-x-6 text-sm lg:text-base">
+              <li><a href="financial.html" class="text-charcoal hover:text-teal font-medium transition-colors">Financial</a></li>
+              <li><a href="investments.html" class="text-charcoal hover:text-teal font-medium transition-colors">Investments</a></li>
+              <li><a href="retirement.html" class="text-charcoal hover:text-teal font-medium transition-colors">Retirement</a></li>
+              <li><a href="taxes.html" class="text-charcoal hover:text-teal font-medium transition-colors">Taxes</a></li>
+              <li><a href="estate.html" class="text-charcoal hover:text-teal font-medium transition-colors">Estate</a></li>
             </ul>
           </nav>
 
