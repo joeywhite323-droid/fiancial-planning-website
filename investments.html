@@ -110,6 +110,14 @@
             </div>
 
             <div>
+              <div class="flex justify-between items-end mb-1">
+                <label class="block text-sm font-bold text-navy">Time Horizon</label>
+                <span id="inv-years-display" class="font-bold text-teal text-sm">20 Years</span>
+              </div>
+              <input type="range" id="inv-years" min="1" max="50" value="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-500" oninput="document.getElementById('inv-years-display').textContent = this.value + ' Years'">
+            </div>
+
+            <div>
               <label class="block text-sm font-bold text-navy mb-2">Target Risk & Volatility Profile</label>
               <div class="space-y-2">
                 <label class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded hover:border-teal transition-colors focus-within:ring-1 ring-teal">
@@ -143,7 +151,7 @@
 
           <!-- Result Preview Area -->
           <div id="invResultArea" class="hidden mt-8 p-6 bg-slate-50 border border-slate-200 rounded-xl relative">
-            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-1">10-Year Trajectory Base</h4>
+            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-1" id="invBaseTitle">10-Year Trajectory Base</h4>
             <div class="text-3xl font-heading font-black text-teal mb-4" id="invBaseDisplay">$0</div>
             
             <p class="text-sm text-charcoal mb-4">Capital growth trajectory charted based on selected volatility parameters.</p>
@@ -169,9 +177,13 @@
                   <span class="text-sm font-bold text-charcoal">Year 20 Value</span>
                   <span class="font-bold text-navy" id="inv20yr"></span>
                 </div>
-                <div class="flex justify-between items-center pb-2">
+                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                   <span class="text-sm font-bold text-charcoal">Year 30 Value</span>
-                  <span class="text-2xl font-black text-teal" id="inv30yr"></span>
+                  <span class="font-bold text-navy" id="inv30yr"></span>
+                </div>
+                <div class="flex justify-between items-center bg-teal/10 p-3 rounded-lg border border-teal/20 mt-2">
+                  <span class="text-sm font-bold text-teal" id="invCustomTitle">Selected Horizon (20 Yrs)</span>
+                  <span class="text-2xl font-black text-teal" id="invCustomVal"></span>
                 </div>
               </div>
               <p class="text-xs text-gray-500 mt-4 text-center italic" id="invAdvice"></p>
@@ -198,17 +210,24 @@
       const initial = parseFloat(document.getElementById('inv-initial').value) || 0;
       const monthly = parseFloat(document.getElementById('inv-monthly').value) || 0;
       const rate = document.querySelector('input[name="inv-risk"]:checked').value;
+      const years = parseInt(document.getElementById('inv-years').value) || 20;
       
+      const vCustom = calculateCompound(initial, monthly, rate, years);
       const v10 = calculateCompound(initial, monthly, rate, 10);
       const v20 = calculateCompound(initial, monthly, rate, 20);
       const v30 = calculateCompound(initial, monthly, rate, 30);
       
       const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
       
-      document.getElementById('invBaseDisplay').textContent = formatter.format(v10);
+      document.getElementById('invBaseTitle').textContent = `${years}-Year Trajectory`;
+      document.getElementById('invBaseDisplay').textContent = formatter.format(vCustom);
+      
       document.getElementById('inv10yr').textContent = formatter.format(v10);
       document.getElementById('inv20yr').textContent = formatter.format(v20);
       document.getElementById('inv30yr').textContent = formatter.format(v30);
+      
+      document.getElementById('invCustomTitle').textContent = `Selected Horizon (${years} Yrs)`;
+      document.getElementById('invCustomVal').textContent = formatter.format(vCustom);
 
       const adviceElem = document.getElementById('invAdvice');
       if(rate == "0.045") adviceElem.textContent = "Your conservative approach guards against drawdowns, but requires significantly higher principal contributions to outpace inflation long-term.";
