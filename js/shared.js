@@ -16,7 +16,7 @@ function injectSharedComponents() {
           <!-- Navigation -->
           <nav class="hidden lg:block mx-4">
             <ul class="flex xl:space-x-6 lg:space-x-4 text-xs xl:text-sm">
-              <li><a href="financial.html" class="text-charcoal hover:text-teal font-medium transition-colors whitespace-nowrap">Financial Planning</a></li>
+              <li><a href="insurance.html" class="text-charcoal hover:text-teal font-medium transition-colors whitespace-nowrap">Insurance Planning</a></li>
               <li><a href="investments.html" class="text-charcoal hover:text-teal font-medium transition-colors whitespace-nowrap">Investment Planning</a></li>
               <li><a href="retirement.html" class="text-charcoal hover:text-teal font-medium transition-colors whitespace-nowrap">Retirement Planning</a></li>
               <li><a href="taxes.html" class="text-charcoal hover:text-teal font-medium transition-colors whitespace-nowrap">Tax Planning</a></li>
@@ -51,7 +51,7 @@ function injectSharedComponents() {
           <div>
             <h4 class="font-heading text-lg mb-4 text-teal">Services</h4>
             <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="financial.html" class="hover:text-white transition-colors">Wealth Management</a></li>
+              <li><a href="insurance.html" class="hover:text-white transition-colors">Risk Mitigation</a></li>
               <li><a href="investments.html" class="hover:text-white transition-colors">Investment Trajectory</a></li>
               <li><a href="retirement.html" class="hover:text-white transition-colors">Retirement Bridges</a></li>
               <li><a href="taxes.html" class="hover:text-white transition-colors">Tax Efficiency</a></li>

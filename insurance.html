@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Planning | Financial Quest</title>
+  <meta name="description" content="Structure your safety net and calculate your exact mathematical risk exposure with our Coverage Gap Analyzer.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0A192F',
+            charcoal: '#334155',
+            teal: '#14B8A6',
+            light: '#F8FAFC'
+          },
+          fontFamily: {
+            heading: ['Merriweather', 'serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700;900&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      color: #334155;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Merriweather', serif;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+    .hero-bg {
+      background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('img/insurance_bg.png');
+      background-size: cover;
+      background-position: center 30%;
+    }
+  </style>
+  <script src="js/shared.js" defer></script>
+</head>
+<body class="pt-20">
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white py-24 md:py-32 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">Strategic <span class="text-teal">Risk</span> Mitigation.</h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">
+          The foundation of sustained wealth accumulation is robust structural defense. Protect your legacy from the unexpected.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Article Column (Left) -->
+      <div class="lg:col-span-7">
+        <h2 class="text-3xl font-heading text-navy font-bold mb-6">The Architecture of Risk Mitigation</h2>
+        <div class="prose max-w-none text-charcoal space-y-5 leading-relaxed text-lg">
+          <p>
+            An exceptional offense requires an impenetrable defense. Without structural protections in place, a single catastrophic life event can instantaneously liquidate decades of disciplined saving and compounding. Wealth management is as much about mathematically calculating downside risk as it is about pushing upside boundaries.
+          </p>
+          <img src="img/art_insurance.png" alt="Strategic Insurance Shielding" class="rounded-xl shadow-md w-full my-6 object-cover h-80 border border-slate-200">
+          <h3 class="text-2xl font-heading text-navy font-bold mt-8 mb-4">Protecting The Delta</h3>
+          <p>
+            The fundamental question is simple: If your income flow suddenly halted, how long until your current liabilities overwhelm your liquid assets? A rigorous D.I.M.E. analysis ensures your dependents are entirely shielded from catastrophic loss by factoring in Debt, Income, Mortgage, and Education expenses.
+          </p>
+          <p>
+            True peace of mind comes from calculating exact mathematical exposure points and eliminating them through targeted, highly-leveraged policies. Use our Coverage Gap Analyzer to identify where your systemic vulnerabilities lie.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tool Column (Right) -->
+      <div class="lg:col-span-5">
+        <div class="glass-card rounded-2xl p-6 md:p-8 relative sticky top-32">
+          <div class="absolute -top-4 -right-4 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">Interactive Model</div>
+          
+          <h3 class="text-2xl font-heading text-navy font-bold mb-2">Coverage Gap Analyzer</h3>
+          <p class="text-sm text-gray-500 mb-6 border-b pb-4 border-gray-100">Calculate your exact structural deficit to secure your family's financial continuity.</p>
+          
+          <form id="insForm" class="space-y-4">
+            <div>
+              <label class="block text-sm font-bold text-navy mb-1">Mortgage & Total Debt</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                <input type="number" id="ins-debt" value="350000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal focus:border-teal outline-none" min="0">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-navy mb-1">Annual Income to Replace</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                <input type="number" id="ins-income" value="120000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal focus:border-teal outline-none" min="0">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-end mb-1">
+                <label class="block text-sm font-bold text-navy">Years of Replacement</label>
+                <span id="ins-years-display" class="font-bold text-teal text-sm">10 Years</span>
+              </div>
+              <input type="range" id="ins-years" min="1" max="40" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-500" oninput="document.getElementById('ins-years-display').textContent = this.value + ' Years'">
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-navy mb-1">Current Liquid Assets & Coverage</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                <input type="number" id="ins-assets" value="150000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal focus:border-teal outline-none" min="0">
+              </div>
+            </div>
+
+            <button type="button" onclick="calculateCoverageGap()" class="w-full mt-6 bg-navy hover:bg-navy/90 text-white font-medium py-3 px-4 rounded shadow transition-all duration-200">
+              Run Threat Analysis
+            </button>
+          </form>
+
+          <!-- Result Preview Area -->
+          <div id="insResultArea" class="hidden mt-8 p-6 bg-slate-50 border border-slate-200 rounded-xl relative">
+            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-1">Your Coverage Gap</h4>
+            <div class="text-3xl font-heading font-black text-red-500 mb-2" id="insGapDisplay">$0</div>
+            
+            <p class="text-sm text-charcoal mb-4" id="insAdviceMsg">You have a critical risk exposure deficit.</p>
+
+            <div class="absolute inset-0 bg-white/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center rounded-xl p-4 text-center">
+              <div class="mb-2 bg-navy text-white text-xs px-2 py-1 rounded shadow-sm">Analysis Generated</div>
+              <p class="text-sm text-navy font-bold mb-4">Unlock your full mathematical risk projection and liability breakdown.</p>
+              <button onclick="promptInsuranceGate()" class="bg-teal hover:bg-teal/90 text-white text-sm font-medium py-2 px-5 rounded shadow-lg transition-transform hover:scale-105">
+                Unlock Risk Report
+              </button>
+            </div>
+            
+            <!-- Hidden Complete Report Data -->
+            <div id="insFullReport" class="hidden relative z-20 mt-4 border-t border-slate-200 pt-4">
+              <h4 class="font-bold text-navy mb-4">Liability Breakdown</h4>
+              
+              <div class="space-y-4">
+                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                  <span class="text-sm font-bold text-charcoal">Debt Liquidation Needs</span>
+                  <span class="font-bold text-navy" id="insDebtReq"></span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                  <span class="text-sm font-bold text-charcoal">Income Replacement</span>
+                  <span class="font-bold text-navy" id="insIncReq"></span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                  <span class="text-sm font-bold text-charcoal">Total Risk Exposure</span>
+                  <span class="font-bold text-red-500" id="insTotalRisk"></span>
+                </div>
+                <div class="flex justify-between items-center bg-teal/10 p-3 rounded-lg border border-teal/20 mt-2">
+                  <span class="text-sm font-bold text-teal">Current Baseline Shield</span>
+                  <span class="text-lg font-black text-teal" id="insAssetsHas"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function calculateCoverageGap() {
+      const debt = parseFloat(document.getElementById('ins-debt').value) || 0;
+      const income = parseFloat(document.getElementById('ins-income').value) || 0;
+      const years = parseInt(document.getElementById('ins-years').value) || 10;
+      const assets = parseFloat(document.getElementById('ins-assets').value) || 0;
+      
+      const incomeReplacement = income * years;
+      const totalRisk = debt + incomeReplacement;
+      const gap = totalRisk - assets;
+      
+      const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      
+      document.getElementById('insDebtReq').textContent = formatter.format(debt);
+      document.getElementById('insIncReq').textContent = formatter.format(incomeReplacement);
+      document.getElementById('insTotalRisk').textContent = formatter.format(totalRisk);
+      document.getElementById('insAssetsHas').textContent = formatter.format(assets);
+
+      const gapDisplay = document.getElementById('insGapDisplay');
+      const adviceMsg = document.getElementById('insAdviceMsg');
+
+      if (gap > 0) {
+        gapDisplay.textContent = formatter.format(gap);
+        gapDisplay.className = "text-3xl font-heading font-black text-red-500 mb-2";
+        adviceMsg.textContent = "You have a critical risk coverage deficit. Obtain term life insurance to mathematically cover this delta immediately.";
+      } else {
+        gapDisplay.textContent = "$0";
+        gapDisplay.className = "text-3xl font-heading font-black text-green-500 mb-2";
+        adviceMsg.textContent = "Your current structures and liquid assets successfully over-collateralize your forecasted liability horizon. You are fully shielded.";
+      }
+
+      const resArea = document.getElementById('insResultArea');
+      resArea.classList.remove('hidden');
+      
+      if (localStorage.getItem('fq_unlocked') === 'true') {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.add('hidden');
+        document.getElementById('insFullReport').classList.remove('hidden');
+      } else {
+        resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.remove('hidden');
+        document.getElementById('insFullReport').classList.add('hidden');
+      }
+    }
+
+    function promptInsuranceGate() {
+      openLeadModal("Risk Assessment", function showUnlockedReport() {
+         const resArea = document.getElementById('insResultArea');
+         resArea.querySelector('.backdrop-blur-\\[2px\\]').classList.add('hidden');
+         document.getElementById('insFullReport').classList.remove('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
