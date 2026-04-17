@@ -98,7 +98,7 @@ function injectSharedComponents() {
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
           </div>
           <h2 class="text-2xl font-heading text-white font-bold" id="modalTitle">Unlock Your Full Report</h2>
-          <p class="text-teal mt-2 text-sm">Where should we send your personalized PDF and analysis?</p>
+          <p class="text-teal mt-2 text-sm">Where should we send your automated analysis and connect you with a vetted partner?</p>
         </div>
         <div class="p-8">
           <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-4">
